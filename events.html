@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | MoBuilds Spedition</title>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Haupt-CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar-wrapper">
+        <nav class="navbar glass-panel">
+            <a href="index.html" class="brand-logo">
+                <i class="fa-solid fa-truck-fast logo-icon"></i>
+                <span>MOBUILDS</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                
+                <!-- ABOUT DROPDOWN -->
+                <div class="dropdown">
+                    <button class="dropdown-btn nav-link">
+                        <i class="fa-solid fa-users"></i> About <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                    </button>
+                    <div class="dropdown-content glass-panel">
+                        <span class="dropdown-label">ÜBERSICHT</span>
+                        
+                        <a href="about.html" class="dropdown-item">
+                            <i class="fa-solid fa-user-group"></i>
+                            <div>
+                                <strong>About us</strong>
+                                <span>Lerne unsere Vision kennen.</span>
+                            </div>
+                        </a>
+                        
+                        <a href="history.html" class="dropdown-item">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <div>
+                                <strong>History</strong>
+                                <span>Unsere Reise in ETS2.</span>
+                            </div>
+                        </a>
+                        
+                        <a href="team.html" class="dropdown-item">
+                            <i class="fa-solid fa-user-shield"></i>
+                            <div>
+                                <strong>Meet the team</strong>
+                                <span>Das Team hinter MoBuilds.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="events.html" class="nav-link active"><i class="fa-solid fa-calendar-days"></i> Events</a>
+                <a href="news.html" class="nav-link">News</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+            </div>
+            
+            <button class="btn-apply" onclick="openModal('bewerbungModal')">
+                Apply <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- EVENTS HERO SECTION -->
+    <section class="section-container" style="margin-top: 140px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span class="sub-title">COMMUNITY CONVOYS & EVENTS</span>
+            <h1 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 10px;">Unsere Convoys & Fahrten</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 20px auto;">
+                Hier findest du alle anstehenden Events und Convoys, an denen die MoBuilds Spedition auf TruckersMP teilnimmt.
+            </p>
+            <a href="https://truckersmp.com/vtc/90638/events" target="_blank" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                <i class="fa-solid fa-truck"></i> Auf TruckersMP ansehen
+            </a>
+        </div>
+
+        <!-- EVENTS GRID CONTAINER -->
+        <div id="eventsContainer" class="events-grid">
+            <div class="loading-state glass-panel">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                <p>Lade Events von TruckersMP...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="footer-brand">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>MoBuilds Spedition</span>
+                </div>
+                <p>Die MoBuilds Spedition bietet eine freundliche Community für TruckersMP-Fahrer. Gemeinsame Fahrten, professionelles Teamwork und vor allem der Spaß am Spiel stehen bei uns an erster Stelle.</p>
+                <a href="#top" class="btn-back-top">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul class="footer-links">
+                    <li class="footer-subheading">About Us:</li>
+                    <li><a href="about.html"><i class="fa-solid fa-turn-up fa-rotate-90"></i> About Us</a></li>
+                    <li><a href="history.html"><i class="fa-solid fa-turn-up fa-rotate-90"></i> History</a></li>
+                    <li><a href="team.html"><i class="fa-solid fa-turn-up fa-rotate-90"></i> Meet the Team</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col standalone-links">
+                <ul class="footer-links">
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Rechtliches</h4>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)" onclick="openBewerbung()">Join Us</a></li>
+                    <li><a href="javascript:void(0)" onclick="openImpressum()">Impressum</a></li>
+                    <li><a href="javascript:void(0)" onclick="openDatenschutz()">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2026 All Rights Reserved by <strong>MoBuilds Spedition</strong></p>
+            <div class="social-icons">
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://truckersmp.com/vtc/90638" target="_blank" aria-label="TruckersMP"><i class="fa-solid fa-truck"></i></a>
+                <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT FOR TRUCKERSMP EVENTS FETCHING -->
+   <script>
+    // DEINE EVENT-IDS:
+    const attendingEventIds = [36863];
+
+    async function fetchAttendingEvents() {
+        const container = document.getElementById('eventsContainer');
+        let loadedEvents = [];
+
+        // Live-Daten von TruckersMP abrufen
+        for (let id of attendingEventIds) {
+            try {
+                const response = await fetch(`https://api.truckersmp.com/v2/events/${id}`);
+                const data = await response.json();
+                
+                if (!data.error && data.response) {
+                    loadedEvents.push(data.response);
+                }
+            } catch (err) {
+                console.log("Lokaler Testmodus aktiv (CORS-Schutz des Browsers)");
+            }
+        }
+
+        // Falls lokal blockiert (file://), nutze Test-Daten
+        if (loadedEvents.length === 0) {
+            loadedEvents = [{
+                id: 36863,
+                name: "Official ETS2 Convoy - August 2026",
+                game: "ETS2",
+                start_at: "2026-08-14 18:00:00",
+                banner: "https://static.truckersmp.com/images/events/banners/36863.png",
+                server: { name: "Event Server" },
+                departure: { location: "Verona" },
+                arrive: { location: "Salzburg" }
+            }];
+        }
+
+        renderEvents(loadedEvents);
+    }
+
+    function renderEvents(events) {
+        const container = document.getElementById('eventsContainer');
+        container.innerHTML = '';
+
+        events.forEach(event => {
+            const eventDate = new Date(event.start_at);
+            const formattedDate = eventDate.toLocaleDateString('de-DE', {
+                weekday: 'short', day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+            });
+
+            // Banner-URL von TMP prüfen oder Fallback nutzen
+            const bannerUrl = event.banner || 'img/hero.jpg';
+
+            const eventCard = document.createElement('div');
+            eventCard.className = 'event-card glass-panel';
+            eventCard.innerHTML = `
+                <div class="event-banner" style="background-image: url('${bannerUrl}');">
+                    <span class="event-badge">${event.game || 'ETS2'}</span>
+                </div>
+                <div class="event-content">
+                    <span class="event-date"><i class="fa-regular fa-clock"></i> ${formattedDate} Uhr</span>
+                    <h3 class="event-title">${event.name}</h3>
+                    <div class="event-details">
+                        <p><i class="fa-solid fa-server"></i> <strong>Server:</strong> ${event.server ? event.server.name : 'TBA'}</p>
+                        <p><i class="fa-solid fa-location-dot"></i> <strong>Start:</strong> ${event.departure ? (event.departure.location || event.departure.city) : 'TBA'}</p>
+                        <p><i class="fa-solid fa-flag-checkered"></i> <strong>Ziel:</strong> ${event.arrive ? (event.arrive.location || event.arrive.city) : 'TBA'}</p>
+                    </div>
+                    <a href="https://truckersmp.com/events/${event.id}" target="_blank" class="btn-secondary event-btn">
+                        Details & Anmelden <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            `;
+            container.appendChild(eventCard);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchAttendingEvents);
+</script>

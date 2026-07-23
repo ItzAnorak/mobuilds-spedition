@@ -3,174 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoBuilds Spedition | Precision Trucking</title>
+    <title>MoBuilds Spedition | ETS2 & ATS Community</title>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Haupt-CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <!-- Liquid Background Effect -->
-    <div class="liquid-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar glass-card">
-        <div class="nav-container">
-            <a href="index.html" class="brand-logo">MOBUILDS <span class="logo-tag">LOGISTICS</span></a>
+    <!-- NAVBAR -->
+    <header class="navbar-wrapper">
+        <nav class="navbar glass-panel">
+            <a href="index.html" class="brand-logo">
+                <i class="fa-solid fa-truck-fast logo-icon"></i>
+                <span>MOBUILDS</span>
+            </a>
+            
             <div class="nav-links">
-                <a href="index.html" class="active-link">Startseite</a>
-                <a href="#philosophy">Philosophie</a>
-                <a href="team.html">Team & Fahrer</a>
-                <a href="partner.html">Partner</a>
+                <a href="index.html" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
+                
+                <!-- ABOUT DROPDOWN -->
+                <div class="dropdown">
+                    <button class="dropdown-btn nav-link">
+                        <i class="fa-solid fa-users"></i> About <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                    </button>
+                    <div class="dropdown-content glass-panel">
+                        <span class="dropdown-label">ÜBERSICHT</span>
+                        
+                        <a href="about.html" class="dropdown-item">
+                            <i class="fa-solid fa-user-group"></i>
+                            <div>
+                                <strong>About us</strong>
+                                <span>Lerne unsere Vision kennen.</span>
+                            </div>
+                        </a>
+                        
+                        <a href="history.html" class="dropdown-item">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <div>
+                                <strong>History</strong>
+                                <span>Unsere Reise in ETS2.</span>
+                            </div>
+                        </a>
+                        
+                        <a href="team.html" class="dropdown-item">
+                            <i class="fa-solid fa-user-shield"></i>
+                            <div>
+                                <strong>Meet the team</strong>
+                                <span>Das Team hinter MoBuilds.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="news.html" class="nav-link">News</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
             </div>
-            <button class="nav-cta glass-button" onclick="openModal('apply-modal')">
-                Bewerben <i class="fa-solid fa-arrow-right-long"></i>
+            
+            <button class="btn-apply" onclick="openModal('bewerbungModal')">
+                Apply <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg" style="background-image: url('img/hero.jpg');"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="badge"><i class="fa-solid fa-shield-halved"></i> TruckersMP Verified VTC</div>
+            <h1 class="hero-title">MOBUILDS<br><span>SPEDITION</span></h1>
+            <p class="hero-subtitle">Where The Road Never Ends</p>
+            <button class="btn-primary" onclick="openModal('bewerbungModal')">
+                Apply <i class="fa-solid fa-arrow-right"></i>
             </button>
         </div>
-    </nav>
+    </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="live-status glass-pill">
-                <span class="pulsing-dot"></span> VIRTUELLE SPEDITION • ETS2 & ATS
-            </div>
-            <h1 class="hero-title">EVERY JOB STARTS WITH <br><span class="accent-text liquid-glow">LOGISTIC.</span></h1>
-            <p class="hero-desc">
-                Willkommen bei der <strong>MoBuilds Spedition</strong>. Wir verbinden echte Trucker-Leidenschaft mit strukturierter Speditionsarbeit. Clean, verlässlich und ohne unnötigen Zwang.
-            </p>
-            <div class="hero-btns">
-                <button class="btn-primary glass-button-glow" onclick="openModal('apply-modal')">
-                    <i class="fa-solid fa-truck-fast"></i> Jetzt Bewerben
-                </button>
-                <a href="https://discord.gg/" target="_blank" class="btn-secondary glass-button">
-                    <i class="fa-brands fa-discord"></i> Discord Joinen
-                </a>
-            </div>
+    <!-- ABOUT / STORY SECTION -->
+    <section id="about" class="section-container story-section">
+        <div class="story-left">
+            <span class="sub-title">OUR STORY</span>
+            <h2>Über die MoBuilds Spedition</h2>
+            <p>Die MoBuilds Spedition wurde ins Leben gerufen, um eine freundliche und professionelle ETS2 & ATS Community auf TruckersMP aufzubauen. Unser Fokus liegt auf gemeinsamen Convoys, echtem Teamwork und einer entspannten Atmosphäre.</p>
+            <p>Egal ob tägliche Touren, Custom Events oder einfach Chillen im Discord – bei uns steht der Spaß am gemeinsamen Fahren an erster Stelle.</p>
+            <a href="about.html" class="btn-secondary">Read more <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="story-right gallery-grid-mini">
+            <div class="grid-img img-large" style="background-image: url('img/story1.jpg');"></div>
+            <div class="grid-img" style="background-image: url('img/story2.jpg');"></div>
+            <div class="grid-img" style="background-image: url('img/story3.jpg');"></div>
+            <div class="grid-img img-wide" style="background-image: url('img/story4.jpg');"></div>
         </div>
     </section>
 
-    <!-- Bento Grid Section -->
-    <section id="philosophy" class="bento-section">
-        <div class="bento-container">
-            
-            <div class="bento-card glass-card span-2">
-                <div class="card-icon"><i class="fa-solid fa-truck-front"></i></div>
-                <span class="card-tag">FUHRPARK</span>
-                <h3>Deine LKW-Wahl. Dein Stil.</h3>
-                <p>Scania, Volvo, MAN oder Actros – wähle deinen Favoriten im Fuhrpark. Bei uns zählt das saubere Erscheinungsbild auf Achse.</p>
-            </div>
-
-            <div class="bento-card glass-card">
-                <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <span class="card-tag">STATUS</span>
-                <div class="big-stat liquid-glow">100%</div>
-                <p>Fokus auf Qualität & Community.</p>
-            </div>
-
-            <div class="bento-card glass-card">
-                <div class="card-icon"><i class="fa-solid fa-route"></i></div>
-                <span class="card-tag">KEIN ZWANG</span>
-                <h3>Freie Kilometer</h3>
-                <p>Fahre wann und wie viel du willst. Reallife geht bei uns immer vor!</p>
-            </div>
-
-            <div class="bento-card glass-card span-2">
-                <div class="card-icon"><i class="fa-solid fa-users"></i></div>
-                <span class="card-tag">COMMUNITY</span>
-                <h3>Gemeinsame Convoys & Events</h3>
-                <p>Regelmäßige Ausfahrten in ETS2 & ATS mit eigenem TruckersMP-Auftritt und harmonischem Miteinander.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer glass-card">
+    <!-- FOOTER SECTION -->
+    <footer class="site-footer">
         <div class="footer-container">
-            <div class="footer-left">
-                <span class="brand-logo">MOBUILDS <span class="logo-tag">LOGISTICS</span></span>
-                <p>© 2026 MoBuilds Spedition. Every Job starts with Logistic.</p>
+            <!-- Spalte 1: Brand / Info -->
+            <div class="footer-col brand-col">
+                <div class="footer-brand">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>MoBuilds Spedition</span>
+                </div>
+                <p>Die MoBuilds Spedition bietet eine freundliche Community für TruckersMP-Fahrer. Gemeinsame Fahrten, professionelles Teamwork und vor allem der Spaß am Spiel stehen bei uns an erster Stelle.</p>
+                <a href="#home" class="btn-back-top">Back to top <i class="fa-solid fa-arrow-up"></i></a>
             </div>
-            <div class="footer-right">
-                <a href="#impressum" class="legal-link" onclick="openModal('impressum-modal')">Impressum</a>
-                <span class="divider">•</span>
-                <a href="#datenschutz" class="legal-link" onclick="openModal('datenschutz-modal')">Datenschutz</a>
+
+            <!-- Spalte 2: Pages -->
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul class="footer-links">
+                    <li class="footer-subheading">About Us:</li>
+                    <li><a href="about.html"><i class="fa-solid fa-turn-up fa-rotate-90"></i> About Us</a></li>
+                    <li><a href="history.html"><i class="fa-solid fa-turn-up fa-rotate-90"></i> History</a></li>
+                    <li><a href="team.html"><i class="fa-solid fa-turn-up fa-rotate-90"></i> Meet the Team</a></li>
+                </ul>
+            </div>
+
+            <!-- Spalte 3: Navigation -->
+            <div class="footer-col standalone-links">
+                <ul class="footer-links">
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+
+            <!-- Spalte 4: Quick Links / Rechtliches -->
+            <div class="footer-col">
+                <h4>Rechtliches</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="openModal('bewerbungModal')">Join Us</a></li>
+                    <li><a href="javascript:void(0)" onclick="openImpressum()">Impressum</a></li>
+                    <li><a href="javascript:void(0)" onclick="openDatenschutz()">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Unten: Copyright & Socials -->
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2026 All Rights Reserved by <strong>MoBuilds Spedition</strong></p>
+            <div class="social-icons">
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="TruckersMP"><i class="fa-solid fa-truck"></i></a>
+                <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- BEWERBUNGS MODAL -->
-    <div id="apply-modal" class="modal">
-        <div class="modal-content glass-card">
-            <button class="close-btn" onclick="closeModal('apply-modal')">&times;</button>
-            <div class="modal-header">
-                <span class="modal-tag">KARRIERE</span>
-                <h2>Werde Teil des Teams</h2>
-            </div>
-            <form action="https://formspree.io/f/DEINE_FORMID" method="POST" class="modal-form">
-                <div class="form-group">
-                    <label>Dein Ingame / Discord Name</label>
-                    <input type="text" name="name" placeholder="z.B. Maurice" required>
-                </div>
-                <div class="form-group">
-                    <label>Dein Alter</label>
-                    <input type="number" name="age" placeholder="z.B. 20" required>
-                </div>
-                <div class="form-group">
-                    <label>TruckersMP ID / Profil-Link</label>
-                    <input type="text" name="tmp_id" placeholder="ID oder Link">
-                </div>
-                <div class="form-group">
-                    <label>Kurze Nachricht an uns</label>
-                    <textarea name="message" rows="3" placeholder="Warum möchtest du zu MoBuilds?"></textarea>
-                </div>
-                <button type="submit" class="btn-primary glass-button-glow width-100">Bewerbung Absenden</button>
-            </form>
-        </div>
+    <!-- IMPRESSUM MODAL MIT TRUCK ANIMATION -->
+<div id="impressumModal" class="modal-overlay">
+    <!-- Der LKW, der durchs Bild fährt -->
+    <div class="truck-wrapper">
+        <i class="fa-solid fa-truck-moving truck-icon"></i>
     </div>
 
-    <!-- IMPRESSUM MODAL -->
-    <div id="impressum-modal" class="modal">
-        <div class="modal-content glass-card legal-modal">
-            <button class="close-btn" onclick="closeModal('impressum-modal')">&times;</button>
-            <h2>Impressum</h2>
-            <div class="legal-text">
-                <p><strong>MoBuilds Spedition</strong><br>Virtuelle Spedition für ETS2 & ATS</p>
-                <p>Discord: @itzanorak</p>
-                <p>Rein privates Fan-Projekt ohne kommerzielle Absichten.</p>
-            </div>
+    <!-- Das Fenster selbst -->
+    <div class="modal-window glass-panel">
+        <button class="modal-close" onclick="closeImpressum()">&times;</button>
+        
+        <h2><i class="fa-solid fa-scale-balanced"></i> Impressum</h2>
+        <hr class="modal-divider">
+        
+        <div class="modal-body">
+            <h3>Angaben gemäß § 5 TMG</h3>
+            <p><strong>MoBuilds Spedition</strong><br>
+            Beethovenstraße 63<br>
+            89518 Heidenheim</p>
+
+            <h3>Vertreten durch: Maurice konrad</h3>
+            <p>Die Speditionsleitung</p>
+
+            <h3>Kontakt:</h3>
+            <p>E-Mail: info@mobuilds-spedition.de<br>
+            Discord: @itzanorak</p>
+
+            <h3>Haftungsausschluss:</h3>
+            <p>Dies ist eine rein virtuelle Spedition für TruckersMP (Euro Truck Simulator 2 / American Truck Simulator). Es handelt sich um kein reales Transportunternehmen.</p>
         </div>
     </div>
+</div>
+<script>
+    // Impressum Funktionen
+    function openImpressum() {
+        document.getElementById('impressumModal').classList.add('active');
+    }
+    function closeImpressum() {
+        document.getElementById('impressumModal').classList.remove('active');
+    }
 
-    <!-- DATENSCHUTZ MODAL -->
-    <div id="datenschutz-modal" class="modal">
-        <div class="modal-content glass-card legal-modal">
-            <button class="close-btn" onclick="closeModal('datenschutz-modal')">&times;</button>
-            <h2>Datenschutzerklärung</h2>
-            <div class="legal-text">
-                <p>Personenbezogene Daten aus dem Bewerbungsformular werden vertraulich behandelt und nur zur Kontaktaufnahme genutzt.</p>
-            </div>
-        </div>
+    // Datenschutz Funktionen
+    function openDatenschutz() {
+        document.getElementById('datenschutzModal').classList.add('active');
+    }
+    function closeDatenschutz() {
+        document.getElementById('datenschutzModal').classList.remove('active');
+    }
+
+    // Schließen beim Klick außerhalb des Fensters
+    window.onclick = function(event) {
+        let impModal = document.getElementById('impressumModal');
+        let datModal = document.getElementById('datenschutzModal');
+        
+        if (event.target == impModal) closeImpressum();
+        if (event.target == datModal) closeDatenschutz();
+    }
+</script>
+
+<!-- DATENSCHUTZ MODAL MIT TRUCK ANIMATION -->
+<div id="datenschutzModal" class="modal-overlay">
+    <div class="truck-wrapper">
+        <i class="fa-solid fa-truck-moving truck-icon"></i>
     </div>
 
-    <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "flex";
-        }
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-            }
-        }
-    </script>
+    <div class="modal-window glass-panel">
+        <button class="modal-close" onclick="closeDatenschutz()">&times;</button>
+        
+        <h2><i class="fa-solid fa-user-shield"></i> Datenschutz</h2>
+        <hr class="modal-divider">
+        
+        <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
+            <h3>1. Datenschutz auf einen Blick</h3>
+            <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen.</p>
+
+            <h3>2. Datenerfassung auf unserer Website</h3>
+            <p>Diese Website dient ausschließlich als Informationsplattform für die virtuelle Spedition <strong>MoBuilds Spedition</strong> auf TruckersMP. Es werden keine personenbezogenen Daten ohne Ihre Zustimmung gespeichert oder verarbeitet.</p>
+
+            <h3>3. Discord & externe Links</h3>
+            <p>Auf unserer Website befinden sich Links zu externen Diensten (wie Discord, TruckersMP, YouTube). Beim Klick auf diese Links gelten die Datenschutzbestimmungen der jeweiligen Anbieter.</p>
+        </div>
+    </div>
+</div>
+
+<!-- BEWERBUNG MODAL -->
+<div id="bewerbungModal" class="modal-overlay">
+    <div class="modal-window glass-panel modal-large">
+        <button class="modal-close" onclick="closeBewerbung()">&times;</button>
+        
+        <h2><i class="fa-solid fa-file-signature"></i> Bewerbung bei MoBuilds</h2>
+        <p class="modal-subtext">Werde Teil unserer Spedition! Fülle einfach das Formular aus.</p>
+        <hr class="modal-divider">
+        
+        <form action="https://formspree.io/f/xvzebrpr" method="POST" class="apply-form">
+            <!-- Name & Alter -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">InGame-Name / Name *</label>
+                    <input type="text" id="name" name="Name" required placeholder="z. B. TruckerMax">
+                </div>
+                <div class="form-group">
+                    <label for="age">Alter *</label>
+                    <input type="number" id="age" name="Alter" min="10" max="99" required placeholder="z. B. 22">
+                </div>
+            </div>
+
+            <!-- VTC Erfahrung -->
+            <div class="form-group">
+                <label for="prevVtc">Warst du bereits in einer VTC? Falls ja, in welcher?</label>
+                <input type="text" id="prevVtc" name="Vorherige_VTC" placeholder="Nein / Oder Name der VTC">
+            </div>
+
+            <!-- Map DLCs (Checkboxen) -->
+            <div class="form-group">
+                <label>Welche ETS2 Map DLCs besitzt du?</label>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="Going East!"> Going East!</label>
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="Scandinavia"> Scandinavia</label>
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="Vive la France!"> Vive la France!</label>
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="Italia"> Italia</label>
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="Beyond the Baltic Sea"> Beyond the Baltic Sea</label>
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="Road to the Black Sea"> Road to the Black Sea</label>
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="Iberia"> Iberia</label>
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="West Balkans"> West Balkans</label>
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="Greece"> Greece</label>
+                    <label class="checkbox-item"><input type="checkbox" name="DLC[]" value="Nordic Horizons"> Nordic Horizons</label>
+                </div>
+            </div>
+
+            <!-- Führungsrolle -->
+            <div class="form-group">
+                <label for="managementRole">Wärst du bereit, irgendwann eine Rolle in der Speditionsleitung zu übernehmen?</label>
+                <select id="managementRole" name="Bereit_für_Leitung" required>
+                    <option value="" disabled selected>Bitte wählen...</option>
+                    <option value="Ja">Ja, sehr gerne!</option>
+                    <option value="Vielleicht">Vielleicht, nach gewisser Zeit</option>
+                    <option value="Nein">Nein, ich möchte nur entspannt fahren</option>
+                </select>
+            </div>
+
+            <!-- Absenden Button -->
+            <button type="submit" class="btn-submit">
+                Bewerbung absenden <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Impressum
+    function openImpressum() { document.getElementById('impressumModal').classList.add('active'); }
+    function closeImpressum() { document.getElementById('impressumModal').classList.remove('active'); }
+
+    // Datenschutz
+    function openDatenschutz() { document.getElementById('datenschutzModal').classList.add('active'); }
+    function closeDatenschutz() { document.getElementById('datenschutzModal').classList.remove('active'); }
+
+    // Bewerbung
+    function openBewerbung() { document.getElementById('bewerbungModal').classList.add('active'); }
+    function closeBewerbung() { document.getElementById('bewerbungModal').classList.remove('active'); }
+
+    // Universal Open-Modal (für Buttons mit onclick="openModal('bewerbungModal')")
+    function openModal(id) {
+        document.getElementById(id).classList.add('active');
+    }
+
+    // Klick außerhalb schließt Fenster
+    window.onclick = function(event) {
+        let impModal = document.getElementById('impressumModal');
+        let datModal = document.getElementById('datenschutzModal');
+        let bewModal = document.getElementById('bewerbungModal');
+        
+        if (event.target == impModal) closeImpressum();
+        if (event.target == datModal) closeDatenschutz();
+        if (event.target == bewModal) closeBewerbung();
+    }
+</script>
 </body>
 </html>
