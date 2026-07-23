@@ -5,78 +5,401 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoBuilds Logistics - Unser Team</title>
     
-    <!-- Font Awesome (Für Icons) -->
+    <!-- Font Awesome für Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Deine globale Style-Datei -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigationsleiste */
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #38bdf8;
+        }
+
+        .btn-apply {
+            background: #ffffff;
+            color: #0b0f19;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        /* Hauptinhalt */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+        }
+
+        .hero-title span { color: #38bdf8; }
+
+        /* Sektions-Titel */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .section-title.leader { color: #f59e0b; }
+        .section-title.mgmt { color: #38bdf8; }
+        .section-title.driver { color: #10b981; }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Team Karte */
+        .team-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(56, 189, 248, 0.4);
+            background: rgba(30, 41, 59, 0.7);
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: #1e293b;
+        }
+
+        .member-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .member-info p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .role-text {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        /* MODAL / POPUP */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-card {
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+
+        .close-btn:hover { color: #fff; }
+
+        .modal-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            border: 3px solid #38bdf8;
+            object-fit: cover;
+        }
+
+        .modal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            transition: opacity 0.3s;
+        }
+
+        .modal-link-btn:hover { opacity: 0.85; }
+
+        .btn-steam { background: #171a21; border: 1px solid #2a475e; }
+        .btn-tmp { background: #2f3542; border: 1px solid #70a1ff; }
+        .btn-wot { background: #b33939; border: 1px solid #ff5252; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px 20px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            background: #080c14;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <header class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-truck-fast"></i> MOBUILDS
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-truck-fast"></i> MOBUILDS
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="team.html" class="active"><i class="fa-solid fa-users"></i> Team</a>
+                <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Events</a>
+                <a href="partner.html"><i class="fa-solid fa-handshake"></i> Partner</a>
+            </nav>
+
+            <a href="https://truckersmp.com" target="_blank" class="btn-apply">Apply <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li><a href="team.html" class="active"><i class="fa-solid fa-users"></i> Team</a></li>
-                <li><a href="events.html"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
-                <li><a href="partner.html"><i class="fa-solid fa-handshake"></i> Partner</a></li>
-            </ul>
-        </nav>
-        <a href="https://truckersmp.com" target="_blank" class="btn-primary">Apply <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </header>
 
-    <!-- Hauptbereich -->
-    <main class="container" style="padding-top: 100px; padding-bottom: 50px;">
-        
-        <div class="hero-text text-center" style="margin-bottom: 40px;">
+    <main>
+        <div class="hero-section">
             <span class="badge">TEAM & TELEMETRIE</span>
-            <h1 style="font-size: 2.5rem; margin: 10px 0;">UNSERE <span style="color: #38bdf8;">CREW.</span></h1>
-            <p style="color: #94a3b8;">Die Köpfe und Fahrer hinter der MoBuilds Spedition. Gemeinsam auf Achse in ETS2 & ATS.</p>
+            <h1 class="hero-title">UNSERE <span>CREW.</span></h1>
+            <p style="color: #94a3b8;">Klicke auf ein Profil, um mehr Links zu sehen.</p>
         </div>
 
-        <!-- Team Grid -->
-        <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            
-            <!-- Karte 1: Geschäftsführung -->
-            <div class="team-card glass-panel" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px;">
-                <div style="color: #f59e0b; font-weight: bold; font-size: 0.85rem; margin-bottom: 10px;">
-                    <i class="fa-solid fa-crown"></i> GESCHÄFTSFÜHRUNG
+        <!-- 1. GESCHÄFTSFÜHRUNG -->
+        <h2 class="section-title leader"><i class="fa-solid fa-crown"></i> Geschäftsführung</h2>
+        <div class="team-grid">
+            <div class="team-card" onclick="openProfile('Maurice', 'Geschäftsführung', 'https://svgsilh.com/svg/2026360.svg', '@itzanorak', 'https://steamcommunity.com/id/aecheon/', 'https://truckersmp.com/user/6231594', 'https://www.worldoftrucks.com/en/profile/4600732')">
+                <img src="https://svgsilh.com/svg/2026360.svg" alt="Maurice Avatar" class="avatar">
+                <div class="member-info">
+                    <div class="role-text" style="color: #f59e0b;">Geschäftsführer</div>
+                    <h3>Maurice</h3>
+                    <p><i class="fa-brands fa-discord"></i> @itzanorak</p>
                 </div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Maurice</h3>
-                <p style="color: #94a3b8;"><i class="fa-brands fa-discord"></i> @itzanorak</p>
+            </div>
+        </div>
+
+        <!-- 2. MANAGEMENT -->
+        <h2 class="section-title mgmt"><i class="fa-solid fa-user-gear"></i> Management</h2>
+        <div class="team-grid">
+            <div class="team-card" style="cursor: default; opacity: 0.6;">
+                <img src="https://via.placeholder.com/60/1e293b/ffffff?text=?" class="avatar">
+                <div class="member-info">
+                    <div class="role-text" style="color: #38bdf8;">Eventmanagement</div>
+                    <h3>[Offen]</h3>
+                    <p>Werde Teil des Teams!</p>
+                </div>
             </div>
 
-            <!-- Karte 2: Eventmanagement -->
-            <div class="team-card glass-panel" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px;">
-                <div style="color: #38bdf8; font-weight: bold; font-size: 0.85rem; margin-bottom: 10px;">
-                    <i class="fa-solid fa-calendar-check"></i> EVENTMANAGEMENT
+            <div class="team-card" style="cursor: default; opacity: 0.6;">
+                <img src="https://via.placeholder.com/60/1e293b/ffffff?text=?" class="avatar">
+                <div class="member-info">
+                    <div class="role-text" style="color: #38bdf8;">Personalmanagement</div>
+                    <h3>[Offen]</h3>
+                    <p>Werde Teil des Teams!</p>
                 </div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 8px;">[Offen]</h3>
-                <p style="color: #94a3b8;">Werde Teil des Teams!</p>
             </div>
+        </div>
 
-            <!-- Karte 3: Personalmanagement -->
-            <div class="team-card glass-panel" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px;">
-                <div style="color: #10b981; font-weight: bold; font-size: 0.85rem; margin-bottom: 10px;">
-                    <i class="fa-solid fa-user-gear"></i> PERSONALMANAGEMENT
+        <!-- 3. FAHRER -->
+        <h2 class="section-title driver"><i class="fa-solid fa-truck"></i> Fahrer</h2>
+        <div class="team-grid">
+            <div class="team-card" style="cursor: default; opacity: 0.6;">
+                <img src="https://via.placeholder.com/60/1e293b/ffffff?text=?" class="avatar">
+                <div class="member-info">
+                    <div class="role-text" style="color: #10b981;">Speditionsfahrer</div>
+                    <h3>[Offen]</h3>
+                    <p>Werde Teil des Teams!</p>
                 </div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 8px;">[Offen]</h3>
-                <p style="color: #94a3b8;">Werde Teil des Teams!</p>
             </div>
-
         </div>
 
     </main>
 
+    <!-- MODAL FENSTER (POPUPS) -->
+    <div class="modal-overlay" id="profileModal" onclick="closeProfileOnOverlay(event)">
+        <div class="modal-card">
+            <span class="close-btn" onclick="closeProfile()">&times;</span>
+            <img src="" id="modalAvatar" class="modal-avatar">
+            <h3 id="modalName" style="font-size: 1.6rem;"></h3>
+            <p id="modalRole" style="color: #38bdf8; font-weight: 600; font-size: 0.9rem; margin-top: 4px;"></p>
+            <p id="modalDiscord" style="color: #94a3b8; font-size: 0.85rem; margin-top: 2px;"></p>
+
+            <div class="modal-links">
+                <a href="#" id="modalSteam" target="_blank" class="modal-link-btn btn-steam">
+                    <i class="fa-brands fa-steam"></i> Steam Profil
+                </a>
+                <a href="#" id="modalTMP" target="_blank" class="modal-link-btn btn-tmp">
+                    <i class="fa-solid fa-truck-front"></i> TruckersMP Profil
+                </a>
+                <a href="#" id="modalWOT" target="_blank" class="modal-link-btn btn-wot">
+                    <i class="fa-solid fa-globe"></i> World of Trucks
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer style="border-top: 1px solid rgba(255,255,255,0.1); padding: 30px 0; margin-top: 50px; text-align: center; color: #64748b; font-size: 0.9rem;">
-        <p><strong>MOBUILDS LOGISTICS</strong></p>
+    <footer>
+        <p style="color: #fff; font-weight: 700; margin-bottom: 5px;">MOBUILDS LOGISTICS</p>
         <p>© 2026 MoBuilds Spedition. Every Job starts with Logistics.</p>
     </footer>
 
+    <!-- JAVASCRIPT FÜR PROFILE -->
+    <script>
+        function openProfile(name, role, avatar, discord, steamUrl, tmpUrl, wotUrl) {
+            document.getElementById('modalName').innerText = name;
+            document.getElementById('modalRole').innerText = role;
+            document.getElementById('modalAvatar').src = avatar;
+            document.getElementById('modalDiscord').innerText = discord;
+            
+            document.getElementById('modalSteam').href = steamUrl;
+            document.getElementById('modalTMP').href = tmpUrl;
+            document.getElementById('modalWOT').href = wotUrl;
+
+            document.getElementById('profileModal').style.display = 'flex';
+        }
+
+        function closeProfile() {
+            document.getElementById('profileModal').style.display = 'none';
+        }
+
+        function closeProfileOnOverlay(event) {
+            if (event.target.id === 'profileModal') {
+                closeProfile();
+            }
+        }
+    </script>
 </body>
 </html>
