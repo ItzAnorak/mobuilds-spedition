@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoBuilds Spedition | ETS2 & ATS Community</title>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoBuilds Logistics</title>
+
+    <!-- Logo im Browser-Tab -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- ... Rest deines Heads (CSS, Fonts) ... -->
+</head>
+
+<!-- Umami Analytics -->
+<script 
+  defer 
+  src="https://cloud.umami.is/script.js" 
+  data-website-id="DEINE_UMAMI_WEBSITE_ID">
+</script>
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Haupt-CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Favicon für den Browser-Tab -->
+<link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 
@@ -84,6 +103,26 @@
         </div>
     </section>
 
+    <!-- TRUCKSBOOK STATS -->
+<section class="tb-stats-section">
+  <h2 style="color: #ffffff; margin-bottom: 20px;">🚛 MoBuilds Logistics in Zahlen</h2>
+  <div class="tb-stats-grid">
+    <div class="tb-stat-card">
+      <span class="tb-number" id="tb-members">--</span>
+      <span class="tb-label">Fahrer</span>
+    </div>
+    <div class="tb-stat-card">
+      <span class="tb-number" id="tb-km-month">--</span>
+      <span class="tb-label">Kilometer (Diesen Monat)</span>
+    </div>
+    <div class="tb-stat-card">
+      <span class="tb-number" id="tb-jobs">--</span>
+      <span class="tb-label">Gefahrene Aufträge</span>
+    </div>
+  </div>
+</section>
+
+
     <!-- ABOUT / STORY SECTION -->
     <section id="about" class="section-container story-section">
         <div class="story-left">
@@ -155,6 +194,24 @@
                 <a href="#" aria-label="TruckersMP"><i class="fa-solid fa-truck"></i></a>
                 <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
             </div>
+
+            <div class="website-stats-container">
+  <div class="stat-card">
+    <span class="stat-icon">👁️</span>
+    <div class="stat-info">
+      <span class="stat-value" id="pageviews-count">--</span>
+      <span class="stat-label">Aufrufe</span>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <span class="stat-icon">🌍</span>
+    <div class="stat-info">
+      <span class="stat-value" id="countries-count">--</span>
+      <span class="stat-label">Länder</span>
+    </div>
+  </div>
+</div>
         </div>
     </footer>
 
@@ -334,6 +391,30 @@
         if (event.target == datModal) closeDatenschutz();
         if (event.target == bewModal) closeBewerbung();
     }
+</script>
+
+<script>
+  const COMPANY_ID = "227094";
+
+  async function loadTrucksBookStats() {
+    try {
+      const response = await fetch(`https://api.trucksbook.eu/v1/company/${COMPANY_ID}`);
+      const data = await response.json();
+
+      if (data && data.response) {
+        const stats = data.response;
+        
+        // Werte in die HTML-Elemente eintragen
+        document.getElementById("tb-members").innerText = stats.members_count || "0";
+        document.getElementById("tb-km-month").innerText = (stats.real_km_month || 0).toLocaleString('de-DE') + " km";
+        document.getElementById("tb-jobs").innerText = (stats.total_jobs || 0).toLocaleString('de-DE');
+      }
+    } catch (error) {
+      console.error("Fehler beim Laden der TrucksBook Stats:", error);
+    }
+  }
+
+  loadTrucksBookStats();
 </script>
 </body>
 </html>

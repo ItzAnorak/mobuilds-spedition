@@ -837,3 +837,78 @@ body {
     text-align: center;
     justify-content: center;
 }
+
+.website-stats-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-icon {
+  font-size: 1.2rem;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #38bdf8; /* Passendes MoBuilds-Blau */
+  font-size: 1rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.tb-stats-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.tb-stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.tb-stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px 30px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tb-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.tb-label {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-top: 5px;
+}
