@@ -1059,3 +1059,141 @@ body {
     line-height: 1.5;
     margin: 0;
 }
+
+/* ==========================================
+   NEWS PAGE STYLES
+   ========================================== */
+
+.news-container {
+    max-width: 1100px;
+    margin: 140px auto 60px;
+    padding: 0 20px;
+}
+
+.news-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.news-header h1 {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.news-header p {
+    color: #8a8a8a;
+    font-size: 1rem;
+}
+
+/* Grid Layout für 2 Spalten auf Desktop */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.news-card {
+    padding: 25px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.news-badge {
+    align-self: flex-start;
+    background: rgba(0, 210, 255, 0.15);
+    color: #00d2ff;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.news-badge.Highlight {
+    background: rgba(255, 75, 75, 0.15);
+    color: #ff4b4b;
+    border-color: rgba(255, 75, 75, 0.3);
+}
+
+.news-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 12px;
+}
+
+.news-card h2 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.news-card p {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.news-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.news-link:hover {
+    color: #00d2ff;
+}
+
+/* ==========================================
+   NAVBAR FIXES (Farben & Links)
+   ========================================== */
+
+/* Verhindert das Standard-Browser-Lila auf Links */
+.navbar a, 
+.navbar a:visited, 
+.navbar a:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-links a, 
+.nav-links a:visited {
+    color: #a0a0a0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffffff !important;
+}
+
+/* Logo Fix */
+.navbar .logo {
+    color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.navbar .logo i {
+    color: #00d2ff; /* Oder die gewünschte Akzentfarbe */
+}
