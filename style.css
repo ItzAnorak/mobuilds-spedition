@@ -942,3 +942,120 @@ body {
 .story-text strong {
     color: #fff;
 }
+
+/* ==========================================
+   FIXES FÜR HEADER & HISTORY/TIMELINE
+   ========================================== */
+
+/* Logo im Header fixen */
+.logo img {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Container & Zentrierung */
+.history-container {
+    max-width: 850px;
+    margin: 140px auto 60px;
+    padding: 0 20px;
+}
+
+.history-header h1 {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.history-header .subtitle {
+    color: #8a8a8a;
+    margin-bottom: 30px;
+}
+
+.story-text {
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.story-text p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.story-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline Struktur Korrektur */
+.timeline {
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Die blaue Führungslinie auf der linken Seite */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    bottom: 10px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 35px;
+    padding-left: 60px; /* Abstand zur Linie */
+}
+
+/* Das runde Icon auf der Linie */
+.timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #0f1115;
+    border: 2px solid #00d2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00d2ff;
+    font-size: 1rem;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+}
+
+/* Die Textkarte */
+.timeline-content {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.8rem;
+    color: #00d2ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.timeline-content p {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
