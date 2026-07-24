@@ -392,5 +392,17 @@
         if (event.target == bewModal) closeBewerbung();
     }
 </script>
+
+    <!-- Gib deinen Zahl-Elementen im HTML eine ID, z.B. <span id="views">7</span> -->
+
+<script>
+  // Ersetze 'mobuilds-sped.de' durch deine Domain
+  fetch('https://api.countapi.xyz/hit/mobuilds-sped.de/visits')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('views').innerText = data.value;
+    })
+    .catch(err => console.error(err));
+</script>
 </body>
 </html>
