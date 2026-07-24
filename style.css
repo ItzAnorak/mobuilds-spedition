@@ -912,3 +912,33 @@ body {
   color: #94a3b8;
   margin-top: 5px;
 }
+
+.history-header .subtitle {
+    color: #a0a0a0;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.story-text {
+    text-align: left;
+    padding: 25px 30px;
+    margin-bottom: 50px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.story-text p {
+    color: #d1d1d1;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.story-text p:last-child {
+    margin-bottom: 0;
+}
+
+.story-text strong {
+    color: #fff;
+}
